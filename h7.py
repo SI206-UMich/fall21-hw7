@@ -149,18 +149,6 @@ class TestAllMethods(unittest.TestCase):
 
         self.assertEqual(len(getRestaurantsByZipcodeAboveRatingAndByPrice('48104', 4.5, '$', self.cur, self.conn)[0]),4)
 
-    def test_restaurants_below_rating_above_reviews_of_category(self):
-        z = getRestaurantsByZipcodeAboveRatingAndByPrice('48104', 4.0, '$', self.cur, self.conn)
-        self.assertEqual(len(z),6)
-        self.assertEqual(z[3][1],"4068 Packard St, Ann Arbor")
-        self.assertEqual(z[0][0],"Dom Bakeries")
-
-        self.assertEqual(len(getRestaurantsByZipcodeAboveRatingAndByPrice('48103', 5.0, '$$', self.cur, self.conn)),0)
-
-        a = sorted(getRestaurantsByZipcodeAboveRatingAndByPrice('48198', 3.0, '$$$', self.cur, self.conn))
-        self.assertEqual(len(a),2)
-        self.assertEqual(a[0][0], "Gratzi")
-        self.assertEqual(len(getRestaurantsByZipcodeAboveRatingAndByPrice('48104', 4.5, '$', self.cur, self.conn)[0]),4)
 
     def test_restaurants_above_rating_above_reviews_of_category(self):
  
